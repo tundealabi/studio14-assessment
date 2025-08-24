@@ -23,6 +23,7 @@ export const ResourceCard: FC<ResourceCardProps> = ({
 }) => {
   return (
     <Box
+      as="article"
       border="1px solid #F2F2F2"
       borderRadius={pxToRem(10)}
       boxShadow="0px 4px 17px 0px rgba(0, 0, 0, 0.02)"
@@ -55,6 +56,7 @@ export const ResourceCard: FC<ResourceCardProps> = ({
         </Icon>
         <Stack gap={{ base: pxToRem(18), lg: pxToRem(13) }}>
           <Text
+            as="h2"
             color="#2C3237"
             fontFamily="poppins"
             fontSize={{ base: pxToRem(22), lg: pxToRem(18) }}
