@@ -4,7 +4,6 @@ export * from './checkbox';
 export * from './field';
 export * from './input-group';
 export * from './menu';
-export * from './provider';
 export * from './switch';
 export * from './tag';
 export * from './toaster';

@@ -92,7 +92,6 @@ export const Navbar = () => {
               fontFamily="poppins"
               name="Tunde Alabi"
               size="xs"
-              src=""
             />
             <Button
               color="#525252"

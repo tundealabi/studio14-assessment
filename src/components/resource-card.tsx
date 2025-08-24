@@ -7,17 +7,17 @@ import { Tag } from './ui';
 type ResourceCardProps = {
   category: string;
   imageName: string;
-  imagePosition: 'left' | 'right';
-  tags: string[];
+  imagePosition: ResourceImagePosition;
+  principles: string[];
   title: string;
-  type: 'file' | 'link' | 'video';
+  type: ResourceType;
 };
 
 export const ResourceCard: FC<ResourceCardProps> = ({
   category,
   imageName,
   imagePosition,
-  tags,
+  principles,
   title,
   type,
 }) => {
@@ -49,9 +49,9 @@ export const ResourceCard: FC<ResourceCardProps> = ({
         pt={{ base: pxToRem(68), lg: pxToRem(48) }}
       >
         <Icon mb={{ base: pxToRem(55), lg: pxToRem(35) }} size="lg">
-          {type === 'file' && <PiFilePdfLight />}
-          {type === 'link' && <PiLinkBold />}
-          {type === 'video' && <PiMonitorPlay />}
+          {type === 'PDF' && <PiFilePdfLight />}
+          {type === 'Link' && <PiLinkBold />}
+          {type === 'Video' && <PiMonitorPlay />}
         </Icon>
         <Stack gap={{ base: pxToRem(18), lg: pxToRem(13) }}>
           <Text
@@ -70,9 +70,9 @@ export const ResourceCard: FC<ResourceCardProps> = ({
           </Text>
 
           <Flex gap={2}>
-            {tags.map((tag) => (
-              <Tag fontWeight={500} key={tag} rounded="full" size="sm">
-                {tag}
+            {principles.map((principle) => (
+              <Tag fontWeight={500} key={principle} rounded="full" size="sm">
+                {principle}
               </Tag>
             ))}
           </Flex>

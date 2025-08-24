@@ -4,11 +4,18 @@ import { Checkbox } from './ui';
 import { pxToRem } from '@/helpers';
 
 type ResourceFilterProps = {
-  items: { isChecked: boolean; title: string }[];
+  items: string[];
+  onSelect: (item: string) => void;
+  selections: string[];
   title: string;
 };
 
-export const ResourceFilter: FC<ResourceFilterProps> = ({ items, title }) => {
+export const ResourceFilter: FC<ResourceFilterProps> = ({
+  items,
+  onSelect,
+  selections,
+  title,
+}) => {
   return (
     <Box>
       <Text fontWeight={700} mb={pxToRem(20)}>
@@ -17,7 +24,7 @@ export const ResourceFilter: FC<ResourceFilterProps> = ({ items, title }) => {
       <Stack gap={pxToRem(6)}>
         {items.map((item) => (
           <Checkbox
-            defaultChecked={item.isChecked}
+            checked={selections.includes(item)}
             icon={
               <Box
                 bgColor="#3F3F3F"
@@ -27,9 +34,10 @@ export const ResourceFilter: FC<ResourceFilterProps> = ({ items, title }) => {
                 w="2"
               />
             }
-            key={item.title}
+            key={item}
+            onChange={() => onSelect(item)}
           >
-            {item.title}
+            {item}
           </Checkbox>
         ))}
       </Stack>
